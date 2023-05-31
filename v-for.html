@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-FOR</title>
+  </head>
+  <body>
+    <div id="directives">
+
+      <h3>Cidades do Mundo - Array</h3>
+      <ol>
+        <li v-for="city in cities"> {{city}} </li> 
+      </ol>
+
+      <h3>Cidades do Mundo - Objetos</h3>
+      <ol>
+        <li v-for="item in cidades">
+          {{ item.cidade }} - {{ item.estado}}
+        </li>
+      </ol>
+
+      <h3>Filmes</h3>
+       <ul>
+        <li v-for="(picture, index) in movies">
+          {{ index }} - {{ picture }}
+        </li>
+       </ul>
+
+       <h2>Empresas</h2>
+        <p v-for="(value, key, index) in company">
+         {{ key }}: {{ value}}
+        </p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+    <script>
+      let app = new Vue({
+        el: "#directives",
+        data: {
+          cities: ['New York', 'São Paulo', 'London', 'Rio de Janeiro'],
+
+
+          cidades: [
+            {
+              cidade: 'Cidade de Nova Iorque',
+              estado: 'Nova Iorque'
+            },
+            {
+              cidade: 'Los Angeles',
+              estado: 'Califórnia'
+            },
+            {
+              cidade: 'Vitória',
+              estado: 'Espírito Santo'
+            },
+            {cidade: 'Porto Alegre',
+            estado: 'Rio Grande do Sul'
+          }
+          ],
+          movies:['Star Wars', 'John Wick', 'Super Mario'],
+          company: {
+            name: 'Facebook',
+            year: 2004,
+            creator: 'Mark Zuckerberg'
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
